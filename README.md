@@ -45,11 +45,9 @@ Then set your Windows Terminal font to **JetBrainsMono NF** in Settings > Profil
 
 ### 3. Download the theme
 
-Copy `github-dark.omp.json` to your preferred location, for example:
-
 ```powershell
 New-Item -ItemType Directory -Path "$HOME\.config\oh-my-posh" -Force
-Copy-Item github-dark.omp.json "$HOME\.config\oh-my-posh\github-dark.omp.json"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/markorr321/github-dark-omp/main/github-dark.omp.json" -OutFile "$HOME\.config\oh-my-posh\github-dark.omp.json"
 ```
 
 ### 4. Add to your PowerShell profile
