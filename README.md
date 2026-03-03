@@ -66,35 +66,47 @@ oh-my-posh init pwsh --config "$HOME\.config\oh-my-posh\github-dark.omp.json" | 
 
 ### 5. (Optional) Matching terminal color scheme
 
-For the full GitHub Dark experience, add this color scheme to your Windows Terminal `settings.json`:
+For the full GitHub Dark experience, run this in PowerShell to add the color scheme and apply it to your Windows Terminal:
 
-```json
-{
-    "name": "GitHub Dark",
-    "background": "#0d1117",
-    "foreground": "#c9d1d9",
-    "cursorColor": "#58a6ff",
-    "selectionBackground": "#163356",
-    "black": "#0d1117",
-    "red": "#f85149",
-    "green": "#3fb950",
-    "yellow": "#d29922",
-    "blue": "#58a6ff",
-    "purple": "#bc8cff",
-    "cyan": "#39c5cf",
-    "white": "#c9d1d9",
-    "brightBlack": "#484f58",
-    "brightRed": "#ff7b72",
-    "brightGreen": "#56d364",
-    "brightYellow": "#e3b341",
-    "brightBlue": "#79c0ff",
-    "brightPurple": "#d2a8ff",
-    "brightCyan": "#56d4dd",
-    "brightWhite": "#f0f6fc"
+```powershell
+$settingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$settings = Get-Content $settingsPath -Raw | ConvertFrom-Json
+
+# Add GitHub Dark color scheme
+$scheme = @{
+    name              = "GitHub Dark"
+    background        = "#0d1117"
+    foreground        = "#c9d1d9"
+    cursorColor       = "#58a6ff"
+    selectionBackground = "#163356"
+    black             = "#0d1117"
+    red               = "#f85149"
+    green             = "#3fb950"
+    yellow            = "#d29922"
+    blue              = "#58a6ff"
+    purple            = "#bc8cff"
+    cyan              = "#39c5cf"
+    white             = "#c9d1d9"
+    brightBlack       = "#484f58"
+    brightRed         = "#ff7b72"
+    brightGreen       = "#56d364"
+    brightYellow      = "#e3b341"
+    brightBlue        = "#79c0ff"
+    brightPurple      = "#d2a8ff"
+    brightCyan        = "#56d4dd"
+    brightWhite       = "#f0f6fc"
 }
-```
 
-Then set `"colorScheme": "GitHub Dark"` in your profile defaults.
+# Add scheme if it doesn't already exist
+if (-not ($settings.schemes | Where-Object { $_.name -eq "GitHub Dark" })) {
+    $settings.schemes += $scheme
+}
+
+# Set as default color scheme
+$settings.profiles.defaults | Add-Member -NotePropertyName "colorScheme" -NotePropertyValue "GitHub Dark" -Force
+
+$settings | ConvertTo-Json -Depth 10 | Set-Content $settingsPath
+```
 
 ## Color Palette
 
