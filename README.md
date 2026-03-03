@@ -8,9 +8,7 @@ A minimal, GitHub-inspired [Oh My Posh](https://ohmyposh.dev/) theme with rounde
 
 ## Preview
 
-```
- Windows   C:\Projects\my-repo   main
-```
+![Preview](Preview-Image.png)
 
 ## Segments
 
@@ -26,7 +24,7 @@ A minimal, GitHub-inspired [Oh My Posh](https://ohmyposh.dev/) theme with rounde
 ## Requirements
 
 - [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) v19+
-- A [Nerd Font](https://www.nerdfonts.com/) (CaskaydiaCove NF recommended)
+- A [Nerd Font](https://www.nerdfonts.com/) (JetBrainsMono NF recommended)
 - Windows Terminal (recommended)
 
 ## Installation
@@ -40,10 +38,10 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 ### 2. Install a Nerd Font
 
 ```powershell
-oh-my-posh font install CascadiaCode
+oh-my-posh font install JetBrainsMono
 ```
 
-Then set your Windows Terminal font to **CaskaydiaCove NF** in Settings > Profiles > Defaults > Appearance.
+Then set your Windows Terminal font to **JetBrainsMono NF** in Settings > Profiles > Defaults > Appearance.
 
 ### 3. Download the theme
 
