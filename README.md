@@ -47,6 +47,9 @@ Then set your Windows Terminal font to **JetBrainsMono NF** in Settings > Profil
 
 ```powershell
 New-Item -ItemType Directory -Path "$HOME\.config\oh-my-posh" -Force
+```
+
+```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/markorr321/github-dark-omp/main/github-dark.omp.json" -OutFile "$HOME\.config\oh-my-posh\github-dark.omp.json"
 ```
 
