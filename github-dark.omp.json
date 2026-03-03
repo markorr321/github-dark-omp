@@ -28,8 +28,7 @@
           "trailing_diamond": "\ue0b4 ",
           "template": " \uf07c {{ .Path }} ",
           "properties": {
-            "style": "agnoster_short",
-            "max_depth": 3
+            "style": "folder"
           }
         },
         {
