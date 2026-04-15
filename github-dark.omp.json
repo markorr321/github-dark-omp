@@ -11,13 +11,16 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "text",
+          "type": "os",
           "style": "diamond",
           "foreground": "#f0f6fc",
           "background": "#21262d",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4 ",
-          "template": " \ue70f "
+          "template": " {{ .Icon }} ",
+          "properties": {
+            "macos": "\uf179"
+          }
         },
         {
           "type": "path",
